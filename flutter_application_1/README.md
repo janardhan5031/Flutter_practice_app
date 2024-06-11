@@ -13,7 +13,8 @@ To get the outdated packages : flutter pub oudated
 To upgrade the dependencies : flutter pub upgrade
 
 
-Routing Strategies : 
+
+## Routing Strategies 
     1. Using Navigator of context {
         Navigator.of(context):
 
@@ -35,6 +36,16 @@ Routing Strategies :
             const ThirdPage() creates an instance of ThirdPage (which should be defined elsewhere in your code). The const keyword indicates that the instance is constant and can be optimized by the Dart compiler.
     }
 
-    2.
-    
+    2.Named Routes Navigation : 
+        1.Routes Map :
+            Here instead of pushing the build context into Navigator context, we navaigating to specific route on press functionality.
+            
+            routes: {
+                "/secondPage": (_)=>const SecondPage(name:"janardhan")
+            },
+            routes in the MeteriaApp from MyApp will take care of handling navigation. But if we want to pass dynamic data to specic route its difficult.
+
+        2.
+        
+
 

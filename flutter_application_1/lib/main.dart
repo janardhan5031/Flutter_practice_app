@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const FirstPage(),
+      routes: {
+        "/secondPage": (_)=>const SecondPage(name:"janardhan")
+      },
     );
   }
 }
@@ -46,8 +49,7 @@ class _FirstPageState extends State<FirstPage> {
                     backgroundColor: WidgetStateProperty.all<Color>(
                         Colors.purple.shade200)),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SecondPage()));
+                  Navigator.of(context).pushNamed("/secondPage");
                 },
                 child: const Text(
                   'Go to Second Page',
@@ -62,7 +64,9 @@ class _FirstPageState extends State<FirstPage> {
 }
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+  const SecondPage({super.key, required this.name});
+
+  final String name;
 
   @override
   Widget build(BuildContext context) {
