@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/RouteGenerator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +17,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const FirstPage(),
-      routes: {
-        "/secondPage": (_)=>const SecondPage(name:"janardhan")
-      },
+      
+      initialRoute: "/",
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
@@ -49,7 +49,7 @@ class _FirstPageState extends State<FirstPage> {
                     backgroundColor: WidgetStateProperty.all<Color>(
                         Colors.purple.shade200)),
                 onPressed: () {
-                  Navigator.of(context).pushNamed("/secondPage");
+                  Navigator.of(context).pushNamed("/second",arguments: "secondPage");
                 },
                 child: const Text(
                   'Go to Second Page',
@@ -73,13 +73,13 @@ class SecondPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Second Page'),
+          title: Text(name),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Second Page"),
+              Text(name),
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -114,5 +114,17 @@ class ThirdPage extends StatelessWidget {
             child: Text('Third Page'),
           ),
         ));
+  }
+}
+
+class ErrorPage extends StatelessWidget {
+  const ErrorPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Error')),
+      body: const Center(child: Text('Route not found')),
+    );
   }
 }

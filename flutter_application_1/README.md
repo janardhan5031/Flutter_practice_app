@@ -45,7 +45,12 @@ To upgrade the dependencies : flutter pub upgrade
             },
             routes in the MeteriaApp from MyApp will take care of handling navigation. But if we want to pass dynamic data to specic route its difficult.
 
-        2.
+        2.Route Generator : 
+            initialRoute: "/",
+            onGenerateRoute: RouteGenerator.generateRoute,
+
+            this method will manages all routes at one place. based on the routes, Material app will handle this in easily.
+            we can pass the dynamic data to the routes specified widget fron onTap (or) onPressed function.
         
 
 
