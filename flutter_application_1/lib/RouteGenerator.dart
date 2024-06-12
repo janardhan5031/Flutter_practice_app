@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/views/ErrorPage.dart';
+import 'package:flutter_application_1/views/LoginPage.dart';
+import 'package:flutter_application_1/views/Note.dart';
+import 'package:flutter_application_1/views/TodoList.dart';
 
 
 class RouteGenerator {
@@ -8,18 +11,16 @@ class RouteGenerator {
     final args = settings.arguments;
 
     switch (settings.name) {
+      case '/login':
+        return MaterialPageRoute(builder: (_) => Login());
       case '/':
-        return MaterialPageRoute(builder: (_) => FirstPage());
-      case '/second':
-        if(args is String){
-          return MaterialPageRoute(builder: (_) => SecondPage(name:args));
-        }
-        return MaterialPageRoute(builder: (_)=> ErrorPage());
-      case '/third':
-        return MaterialPageRoute(builder: (_) => ThirdPage());
+        return MaterialPageRoute(builder: (_) => TodoList());
+      // case '/note':
+      //   if(args is Object){
+      //     return MaterialPageRoute(builder: (_)=>NotePage(data:args));
+      //   }
+      //   return MaterialPageRoute(builder: (_) => const ErrorPage());
       default:
-        // If there is no such named route in the switch statement, return an error page.
-        // You can also throw an exception here or handle it in another way.
         return MaterialPageRoute(builder: (_) => const ErrorPage());
     }
   }

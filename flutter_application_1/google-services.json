@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "319612897527",
+    "project_id": "authentication-project-cbfb3",
+    "storage_bucket": "authentication-project-cbfb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319612897527:android:b5254efea228443aa8abf2",
+        "android_client_info": {
+          "package_name": "chat.nexo.todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319612897527-aflri7f28bf0r5jkqppkehr8ukdcs9j3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "chat.nexo.todo",
+            "certificate_hash": "8f6915de7f3865538f1c08e573aa4c9838765e04"
+          }
+        },
+        {
+          "client_id": "319612897527-15pt1imdrs16nblshiiosdn0qmqi217h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi9Gp5ojx879ewUlHNmFuqnGkFnBMzqbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319612897527-15pt1imdrs16nblshiiosdn0qmqi217h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

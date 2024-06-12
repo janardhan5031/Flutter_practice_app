@@ -4,6 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
+To buid the apk : flutter build apk --build-name=1.0 --build-number=1
+
+To install new pluggin : flutter pub add PLUGIN_NAME
+
 To run the applicatin : flutter run
 
 To install the dependencies : flutter pub get
@@ -54,3 +58,15 @@ To upgrade the dependencies : flutter pub upgrade
         
 
 
+## State Management : 
+    1. Statefull Widget
+        pros :
+            it is usefull for less than three widget's state management by passing their state managing value or funtions to the child widgets
+        
+        cons :
+            It is hard to handle robust and sofisticated state management for large number of widgets
+
+
+    2. Statefull Builder
+        pros :
+            
