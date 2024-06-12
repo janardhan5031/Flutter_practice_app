@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/RouteGenerator.dart';
+import 'package:flutter_application_1/views/TodoList.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -20,7 +22,14 @@ class _LoginState extends State<Login> {
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(Colors.purple.shade200)
           ),
-          onPressed: (){},
+          onPressed: (){
+            print("login button pressed");
+            RouteGenerator.isLoggedIn = true;
+            // Navigator.of(context).pushNamed("/");
+            Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: (context) => TodoList()));
+
+          },
           child: Text("Login")
         ),
       ),

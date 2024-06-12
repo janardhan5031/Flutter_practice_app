@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/ErrorPage.dart';
 import 'package:flutter_application_1/views/LoginPage.dart';
-import 'package:flutter_application_1/views/Note.dart';
 import 'package:flutter_application_1/views/TodoList.dart';
 
 
 class RouteGenerator {
+  static bool isLoggedIn =false;
+
+  static final Map<String, WidgetBuilder> privateRoutes = {
+    "/":(_)=> isLoggedIn ? TodoList() : Login(),
+
+    // Add more private routes here
+  };
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // Get the arguments passed to the route
     final args = settings.arguments;
 
-    switch (settings.name) {
-      case '/login':
-        return MaterialPageRoute(builder: (_) => Login());
-      case '/':
-        return MaterialPageRoute(builder: (_) => TodoList());
-      // case '/note':
-      //   if(args is Object){
-      //     return MaterialPageRoute(builder: (_)=>NotePage(data:args));
-      //   }
-      //   return MaterialPageRoute(builder: (_) => const ErrorPage());
-      default:
-        return MaterialPageRoute(builder: (_) => const ErrorPage());
+    // Check if the route is in privateRoutes
+    final builder = privateRoutes[settings.name];
+    if (builder != null) {
+      return MaterialPageRoute(builder: builder);
     }
+
+    // Handle other routes
+    return MaterialPageRoute(builder: (_) => const ErrorPage());
   }
 }
 

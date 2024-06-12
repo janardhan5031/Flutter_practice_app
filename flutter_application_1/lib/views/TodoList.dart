@@ -78,7 +78,7 @@ class _TodoListState extends State<TodoList> {
               children: [
                 //cotainer  //InkWell and GuesterDetector widgets for onTap functionality
                 Container(
-                    color: Colors.green,
+                    color:Colors.blue[100],
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height - 56,
                     padding: const EdgeInsets.only(bottom: 10, top: 10),

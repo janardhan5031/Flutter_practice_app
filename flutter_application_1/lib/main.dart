@@ -17,8 +17,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   
-   final bool isLoggedIn=true;
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       
-      initialRoute: isLoggedIn ? "/" :"/login",
+      initialRoute: "/" ,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
