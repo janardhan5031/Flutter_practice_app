@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/services/backend_service.dart';
+import 'package:flutter_application_1/store/Authentication.dart';
 import 'package:flutter_application_1/store/task_model.dart';
 import 'package:provider/provider.dart';
 
@@ -96,9 +97,10 @@ class _NotePageState extends State<NotePage> {
                   onPressed: ()async{
                     
                     final tasks = context.read<TaskModel>();
+                    var loginDetails = context.read<AuthModel>().getlogin();
                     if(_formKey.currentState!.validate()==true){
                       tasks.addTask({"title":nameController.text.trim(),"description" :descriptionController.text.trim()});
-                      backendService.createNote(accessToken, {"title":nameController.text.trim(),"description" :descriptionController.text.trim()});
+                      backendService.createNote(loginDetails["accessToken"]!, {"title":nameController.text.trim(),"description" :descriptionController.text.trim()});
                       Navigator.of(context).pop();
                     }
 

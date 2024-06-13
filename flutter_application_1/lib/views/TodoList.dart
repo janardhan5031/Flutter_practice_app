@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/services/backend_service.dart';
+import 'package:flutter_application_1/store/Authentication.dart';
 import 'package:flutter_application_1/store/task_model.dart';
 import 'package:flutter_application_1/views/Note.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +42,9 @@ class _TodoListState extends State<TodoList> {
     try {
       if(!_isMounted) return;
 
-      var response = await backendService.getNotes(accessToken);
+      var loginDetails = context.read<AuthModel>().getlogin();
+
+      var response = await backendService.getNotes(loginDetails["accessToken"]!);
       if (response['status'] == 'SUCCESS') {
         List<dynamic> notes = response['result']['notes'];
 
@@ -88,7 +91,6 @@ class _TodoListState extends State<TodoList> {
                         return InkWell(
                           onTap: () {
                             // Navigator.push(context, MaterialPageRoute(builder: (context) => GuesterDetector()));
-                            print("list clicked");
                           },
                           child: Container(
                               // color: Colors.blue[100],

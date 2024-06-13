@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/RouteGenerator.dart';
+import 'package:flutter_application_1/store/Authentication.dart';
 import 'package:flutter_application_1/store/task_model.dart';
 import 'package:provider/provider.dart';
 
@@ -8,6 +9,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create:(_)=>TaskModel()),    // Here we can add no.of models as consumers and providers app
+        ChangeNotifierProvider(create:(_)=>AuthModel()),    // Here we can add no.of models as consumers and providers app
       ],
       child: const MyApp()
     )

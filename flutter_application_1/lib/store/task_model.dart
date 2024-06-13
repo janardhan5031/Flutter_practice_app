@@ -8,7 +8,6 @@ class TaskModel extends ChangeNotifier{  // state manager
   }
 
   void addList(List<Map<String, String>> list){
-    print(list);
     _tasks=list;
   }
 

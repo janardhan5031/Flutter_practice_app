@@ -1,12 +1,29 @@
+import 'package:flutter_application_1/store/Authentication.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class BackendService {
   final String _baseUrl = "development-api.chatnexo.com";
 
+  Future<Map<String, String>> login(String number) async {
+    try {
+      Uri url = Uri.https(_baseUrl, '/v1/Auth/get-my-access-token', {'mobileNumber': number});
+    var response = await http.get(url);
+      
+      if (response.statusCode == 200) {
+        return {"type": "Success", "message": response.body};
+      } else {
+        return {"type": "Error", "message": response.body};
+      }
+    } catch (e) {
+      return {"type": "Error", "message": e.toString()};
+    }
+  }
+
   Future<Map<String, String>> createNote(
       String accessToken, Map<String, dynamic> data) async {
     try {
+
       Uri url = Uri.https(_baseUrl, '/v1/notes/create-note');
       Map<String, dynamic> body = {
         "title": data["title"],
@@ -31,7 +48,6 @@ class BackendService {
 
   Future<Map<String, dynamic>> getNotes(String accessToken) async {
     try {
-      print(accessToken);
       Uri url = Uri.https(_baseUrl, '/v1/notes/notes');
       Map<String, String> headers = {
         'Content-Type': 'application/json',
