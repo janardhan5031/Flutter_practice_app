@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/services/backend_service.dart';
 import 'package:flutter_application_1/store/Authentication.dart';
 import 'package:flutter_application_1/store/task_model.dart';
+import 'package:flutter_application_1/utils/CustomAppBar.dart';
 import 'package:flutter_application_1/views/Note.dart';
 import 'package:provider/provider.dart';
 
@@ -73,17 +74,24 @@ class _TodoListState extends State<TodoList> {
   Widget build(BuildContext context) {
     return Consumer<TaskModel>(
         builder: (context, value, child) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-              title: const Text("Todo List"),
+            appBar: CustomAppBar(
+              title: 'My Todo',
+              // actions: [
+              //   IconButton(
+              //     icon: Icon(Icons.search),
+              //     onPressed: () {
+              //       // Add your onPressed code here!
+              //     },
+              //   ),
+              // ],
             ),
             body: Column(
               children: [
                 //cotainer  //InkWell and GuesterDetector widgets for onTap functionality
                 Container(
-                    color:Colors.blue[100],
+                    // color:Colors.blue[100],
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height - 56,
+                    height: MediaQuery.of(context).size.height -115,
                     padding: const EdgeInsets.only(bottom: 10, top: 10),
                     child: ListView.builder(
                       itemCount: value.getLength(),
@@ -99,7 +107,7 @@ class _TodoListState extends State<TodoList> {
                               padding: const EdgeInsets.only(
                                   left: 20, right: 20, top: 10, bottom: 10),
                               decoration: BoxDecoration(
-                                  color: Colors.blue[400],
+                                  color: Colors.blue[200],
                                   borderRadius: BorderRadius.circular(10)),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,

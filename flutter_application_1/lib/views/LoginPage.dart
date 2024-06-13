@@ -6,7 +6,6 @@ import 'package:flutter_application_1/services/backend_service.dart';
 import 'package:flutter_application_1/store/Authentication.dart';
 import 'package:flutter_application_1/views/TodoList.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -107,6 +106,26 @@ class _LoginState extends State<Login> {
               child: Text("Login")),
         ],
       )),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'List',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.folder),
+            label: 'Files',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        // currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        // onTap: _onItemTapped,
+        backgroundColor: Colors.purple[100],
+      ),
     )
   );
   }
