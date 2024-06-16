@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/ErrorPage.dart';
 import 'package:flutter_application_1/views/Home.dart';
 import 'package:flutter_application_1/views/LoginPage.dart';
+import 'package:flutter_application_1/views/TodoList.dart';
 
 
 class RouteGenerator {
-  static bool isLoggedIn =true;
+  static bool isLoggedIn =false;  
 
   static final Map<String, WidgetBuilder> privateRoutes = {
     "/":(_)=> isLoggedIn ? HomeWidget() : Login(),
+    "/list":(_)=> isLoggedIn ? TodoList():Login(),
 
     // Add more private routes here
   };

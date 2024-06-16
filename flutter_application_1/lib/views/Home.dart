@@ -9,7 +9,7 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Widget> _widgetOptions = <Widget>[
     const TodoList(),
